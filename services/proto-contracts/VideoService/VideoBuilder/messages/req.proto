@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "VideoService.VideoBuilder.Messages";
+
+package req_message;
+
+enum VideoFormat {
+  MP4 = 0;
+  MOV = 1;
+  AVI = 2;
+  WEBM = 3;
+}
+
+message VideoRequest {
+  //input images
+  string folder_path = 1;
+
+  //fps
+  int32 frame_rate = 2;
+
+	//format
+  VideoFormat format = 3;
+  
+	//output name without extension
+  string output_name = 4;
+  string output_folder = 5;
+}

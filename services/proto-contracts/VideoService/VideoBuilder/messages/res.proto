@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option csharp_namespace = "VideoService.VideoBuilder.Messages";
+
+package res_message;
+
+message VideoResponse {
+  bool success = 1;
+  string error_message = 2;
+  string video_path = 3;
+}
