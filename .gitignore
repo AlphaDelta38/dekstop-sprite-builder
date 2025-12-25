@@ -1,1 +1,3 @@
 *.sln
+dist/
+node_modules/
