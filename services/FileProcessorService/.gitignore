@@ -1,0 +1,19 @@
+# Build artifacts
+bin/
+obj/
+
+# External packages
+external-packages/
+
+# IDE specific files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+.DS_Store
+Thumbs.db
+
+*.log
