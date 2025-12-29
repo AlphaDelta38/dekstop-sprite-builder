@@ -4,13 +4,13 @@ import { TextureAtlas } from '@pixi-spine/base';
 import * as PIXI from 'pixi.js';
 
 interface BuildSpriteProps {
-  athlas: File;   
+  atlas: File;   
   textures: File[];
   skeleton: File;  
 }
 
-async function buildSprite({ athlas, skeleton, textures }: BuildSpriteProps) {
-  const atlasContent = await athlas.text();
+async function buildSprite({ atlas, skeleton, textures }: BuildSpriteProps) {
+  const atlasContent = await atlas.text();
   const skeletonContent = await skeleton.text();
   const skeletonJsonData = JSON.parse(skeletonContent);
 

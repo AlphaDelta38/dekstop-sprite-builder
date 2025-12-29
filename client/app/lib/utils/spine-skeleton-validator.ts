@@ -28,7 +28,7 @@ function isSpineSkeleton(data: unknown): data is SpineSkeletonStructure {
   }
 
   if (!objectToCheck || typeof objectToCheck !== 'object') {
-      return false;
+    return false;
   }
 
   const skeletonData = objectToCheck as any;

@@ -6,7 +6,9 @@ import { PixiViewContextModel, SpineData } from "../types/context";
 import useOnlyClientRender from "@/app/lib/hooks/use-only-client-render";
 import { Viewport } from "pixi-viewport";
 import { WORLD_BASIC_SETTINGS } from "../constants/grid";
-
+import buildSprite from "../../spine-sprites-builder/utils/build-sprite";
+import { Spine } from "pixi-spine";
+import getFileFromDisk from "@/app/lib/utils/get-file-from-disk";
 
 const PixiViewContext = createContext<PixiViewContextModel | null>(null)
 
@@ -21,7 +23,10 @@ export const usePixiView = () => {
 }
 
 function PixiViewProvider({ children }: { children: React.ReactNode }) {
-  const [spineData, setSpineData] = useState<SpineData | null>(null);
+  const [spineData, setSpineData] = useState<SpineData>({
+    spine: null,
+    animations: [],
+  });
   const appRef = useRef<PIXI.Application | null>(null);
   const viewportRef = useRef<Viewport | null>(null);
 

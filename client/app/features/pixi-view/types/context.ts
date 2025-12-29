@@ -6,13 +6,13 @@ import { Viewport } from "pixi-viewport";
 interface PixiViewContextModel {
   app: PIXI.Application;
   viewport: Viewport;
-  spineData: SpineData | null;
-  setSpineData: Dispatch<SetStateAction<SpineData | null>>;
+  spineData: SpineData;
+  setSpineData: Dispatch<SetStateAction<SpineData>>;
   getCenterPosition: () => { x: number, y: number };
 }
 
 type SpineData = {
-  spine: Spine;
+  spine: Spine | null;
   animations: string[];
 }
 

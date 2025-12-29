@@ -9,6 +9,7 @@ import PixiView from "./features/pixi-view";
 import useOnlyClientRender from "./lib/hooks/use-only-client-render";
 import FileDropzone from "./lib/components/files-dropzone";
 
+
 export default function Home() {
   const { setFiles, files, filesIsReady } = useFileController();
   const hasMounted = useOnlyClientRender();
@@ -22,7 +23,7 @@ export default function Home() {
       atlases: prev.atlases.filter((f: File) => f.name !== file.name),
     }));
   }
-  
+
   const onDrop = async (acceptedFiles: File[]) => {
     const atlases: File[] = acceptedFiles.filter((file) => file.name.endsWith(".atlas") && !files.atlases.some((f: File) => f.name === file.name));
 
