@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "FileProcessorService.PrepareData.Messages";
+
+package res_message;
+
+message PrepareBasicStructureRequest {
+  string folder_path = 1;
+}

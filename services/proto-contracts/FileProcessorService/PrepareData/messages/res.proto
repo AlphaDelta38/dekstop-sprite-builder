@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "FileProcessorService.PrepareData.Messages";
+
+package res_message;
+
+message PrepareBasicStructureReply {
+  bool success = 1;
+  string atlas = 2;
+  repeated string jsons = 3;
+  repeated string images = 4;
+  string output_dir_path = 5;
+}

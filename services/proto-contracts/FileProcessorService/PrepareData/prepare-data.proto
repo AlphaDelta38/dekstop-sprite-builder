@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "FileProcessorService.PrepareData";
+
+import "messages/req.proto";
+import "messages/res.proto";
+
+package prepare_data;
+
+// The greeting service definition.
+service PrepareDataGrpcService {
+  // prepare basic structure data
+  rpc PrepareBasicStructure (res_message.PrepareBasicStructureRequest) returns (res_message.PrepareBasicStructureReply);
+}

@@ -1,0 +1,4 @@
+obj\Debug\net10.0/Prepare-dataGrpc.cs \
+obj\Debug\net10.0/PrepareData.cs: ../proto-contracts/FileProcessorService/PrepareData/messages/req.proto\
+ ../proto-contracts/FileProcessorService/PrepareData/messages/res.proto\
+ ../proto-contracts/FileProcessorService/PrepareData/prepare-data.proto

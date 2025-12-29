@@ -3,7 +3,8 @@ import fs from 'fs/promises';
 import path from 'path';
 import { TextureAtlas } from '@pixi-spine/base';
 import { getSpineRuntime } from '../helpers/get-spine-runtime';
-import { getTextureBase64, setTexture } from '../cache/textures-cache';
+import { cache, CacheStoreEnum } from '../store/cache-store';
+
 
 interface BuildSpriteProps {
   atlasPath: string;   
@@ -12,6 +13,10 @@ interface BuildSpriteProps {
 }
 
 async function buildSprite({ atlasPath, skeletonPath, texturePaths }: BuildSpriteProps) {
+  if (cache.has(CacheStoreEnum.SPINES, skeletonPath)) {
+    return cache.get(CacheStoreEnum.SPINES, skeletonPath);
+  }
+
   const atlasContent = await fs.readFile(atlasPath, 'utf8');
   const skeletonContent = await fs.readFile(skeletonPath, 'utf8');
   const skeletonJsonData = JSON.parse(skeletonContent);
@@ -30,7 +35,7 @@ async function buildSprite({ atlasPath, skeletonPath, texturePaths }: BuildSprit
   const textureMap: Record<string, PIXI.Texture> = {};
 
   for (const filePath of texturePaths) {
-    const texture = getTextureBase64(filePath);
+    const texture = cache.get(CacheStoreEnum.TEXTURES, filePath);
 	
     if (texture) {
       textureMap[path.basename(filePath)] = texture;
@@ -42,7 +47,7 @@ async function buildSprite({ atlasPath, skeletonPath, texturePaths }: BuildSprit
 
 		const pixiTexture = await PIXI.Texture.fromURL(base64);
 
-		setTexture(filePath, pixiTexture);
+		cache.set(CacheStoreEnum.TEXTURES, filePath, pixiTexture);
     textureMap[path.basename(filePath)] = pixiTexture;
   }
 
@@ -64,6 +69,7 @@ async function buildSprite({ atlasPath, skeletonPath, texturePaths }: BuildSprit
 
   const spine = new runtime.Spine(skeletonData);
 
+  cache.set(CacheStoreEnum.SPINES, skeletonPath, spine);
   return spine;
 }
 
