@@ -1,8 +1,8 @@
 using Grpc.Core;
-using FileProcessorService.PrepareData.Messages;
+using FileProcessorService.PrepareData.Contract.Messages;
 using FileProcessorService.Services.PrepareDataService.Processors;
 
-using GrpcBase = FileProcessorService.PrepareData.PrepareDataGrpcService;
+using GrpcBase = FileProcessorService.PrepareData.Contract.PrepareDataGrpcService;
 
 namespace FileProcessorService.Services;
 

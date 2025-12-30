@@ -2,12 +2,12 @@ using FFMpegCore;
 using FFMpegCore.Enums;
 using Grpc.Core;
 
-using GrpcBase = VideoService.VideoBuilder.VideoBuilder;
-using VideoService.VideoBuilder.Messages;
+using GrpcBase = VideoService.VideoBuilder.Contract.VideoBuilderService;
+using VideoService.VideoBuilder.Contract.Messages;
 
 namespace VideoService.Services;
 
-public class BuildVideoService(ILogger<BuildVideoService> logger) : GrpcBase.VideoBuilderBase
+public class BuildVideoService(ILogger<BuildVideoService> logger) : GrpcBase.VideoBuilderServiceBase
 {
   public override async Task<VideoResponse> BuildVideo(VideoRequest request, ServerCallContext context)
   {

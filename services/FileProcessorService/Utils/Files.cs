@@ -1,5 +1,5 @@
 
-using FileProcessorService.PrepareData.Messages;
+using FileProcessorService.PrepareData.Contract.Messages;
 
 namespace FileProcessorService.Utils;
 

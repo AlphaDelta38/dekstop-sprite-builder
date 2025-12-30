@@ -1,5 +1,5 @@
 using FileProcessorService.Utils;
-using FileProcessorService.PrepareData.Messages;
+using FileProcessorService.PrepareData.Contract.Messages;
 
 namespace FileProcessorService.Services.PrepareDataService.Processors;
 public static class PrepareBasicStructureProcessor
