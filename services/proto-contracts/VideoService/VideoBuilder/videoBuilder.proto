@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-option csharp_namespace = "VideoService.VideoBuilder";
+option csharp_namespace = "VideoService.VideoBuilder.Contract";
 
-import "messages/req.proto";
-import "messages/res.proto";
+import "messages/video_req.proto";
+import "messages/video_res.proto";
 
 package videobuilder;
 
 // The VideoBuilder service definition.
-service VideoBuilder {
+service VideoBuilderService {
   // Builds a video from input images
   rpc BuildVideo (req_message.VideoRequest) returns (res_message.VideoResponse);
 }

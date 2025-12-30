@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-option csharp_namespace = "FileProcessorService.PrepareData";
+option csharp_namespace = "FileProcessorService.PrepareData.Contract";
 
-import "messages/req.proto";
-import "messages/res.proto";
+import "messages/prepare_req.proto";
+import "messages/prepare_res.proto";
 
 package prepare_data;
 

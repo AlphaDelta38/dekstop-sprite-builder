@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "FileProcessorService.PrepareData.Messages";
+option csharp_namespace = "FileProcessorService.PrepareData.Contract.Messages";
 
 package res_message;
 
