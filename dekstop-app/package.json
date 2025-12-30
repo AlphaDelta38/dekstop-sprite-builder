@@ -5,21 +5,14 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "electron ./app/main.js",
-    "build:spine-renderer": "node ./app/spine-renderer/build.js"
+    "dev": "electron ./app/main.js",
+    "build:spine-renderer": "node ./app/spine-renderer/build.js",
+    "build": "yarn run build:spine-renderer"
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
     "electron": "^39.2.7",
     "esbuild": "^0.27.2",
     "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "@pixi-spine/base": "^4.0.6",
-    "@pixi-spine/runtime-3.7": "^4.0.6",
-    "@pixi-spine/runtime-3.8": "^4.0.6",
-    "@pixi-spine/runtime-4.1": "^4.0.6",
-    "pixi-spine": "^4.0.4",
-    "pixi.js": "^7.3.3"
   }
 }

@@ -1,0 +1,40 @@
+{
+  "name": "dekstop-sprite-builder-root",
+  "private": true,
+  "workspaces": [
+    "client",
+    "dekstop-app"
+  ],
+  "scripts": {
+    "build:client": "cd client && yarn build",
+    "build:dekstop": "cd dekstop-app && yarn build",
+
+    "build:service-video": "cd services/VideoService && dotnet build",
+    "build:service-files": "cd services/FileProcessorService && dotnet build",
+    "build:service-gateway": "cd services/ApiGateway && dotnet build",
+    "build:services": "concurrently \"yarn run build:service-video\" \"yarn run build:service-files \" \"yarn run build:service-gateway\" ",
+
+    "build": "concurrently \"yarn run build:services \" \"yarn run build:client\" \"yarn run build:dekstop\" ",
+
+    "dev:client": "cd client && yarn dev",
+    "dev:dekstop": "cd dekstop-app && yarn dev",
+    
+    "dev:service-video": "cd services/VideoService && dotnet run",
+    "dev:service-files": "cd services/FileProcessorService && dotnet run",
+    "dev:service-gateway": "cd services/ApiGateway && dotnet run",
+    "dev:services": "concurrently \"yarn run dev:service-video\" \"yarn run dev:service-files \" \"yarn run dev:service-gateway\" ",
+
+    "dev": "concurrently \"yarn run dev:services \" \"yarn run dev:client\" \"yarn run dev:dekstop\" "
+  },
+  "dependencies": {
+    "@pixi-spine/base": "^4.0.6",
+    "@pixi-spine/runtime-3.7": "^4.0.6",
+    "@pixi-spine/runtime-3.8": "^4.0.6",
+    "@pixi-spine/runtime-4.1": "^4.0.6",
+    "pixi-spine": "^4.0.4",
+    "pixi.js": "^7.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
