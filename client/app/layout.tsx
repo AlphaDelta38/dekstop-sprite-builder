@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import FileControllerProvider from "./lib/contexts/file-controller/index.";
-import CacheControllerProvider from "./lib/contexts/cache-controller";
-import PixiViewProvider from "./features/pixi-view/context";
 
 import "./globals.css";
+import GlobalContextProvider from "../lib/contexts/global.context";
 
 
 const geistSans = Geist({
@@ -32,13 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PixiViewProvider>
-          <CacheControllerProvider>
-            <FileControllerProvider>
-              {children}
-            </FileControllerProvider>
-          </CacheControllerProvider>
-        </PixiViewProvider>
+        <GlobalContextProvider>
+          {children}
+        </GlobalContextProvider>
       </body>
     </html>
   );

@@ -1,0 +1,112 @@
+
+.spineCard {
+  width: 100%;
+  height: 10%;
+  padding: 12px;
+  background-color: #27272a;
+  border-radius: 12px;
+  min-height: fit-content;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background-color: #3F3F46;
+  }
+
+}
+
+.spineCardContentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.spineIconContainer {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spineIcon {
+  font-size: 36px !important;
+  color: #9CA3AF;
+}
+
+.spineCardInfoContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.spineCardInfoButtonContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.spineCardInfoButtonIcon{
+  color: #9CA3AF;
+}
+
+
+.spineCardName {
+  font-size: 24px;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-wrap: wrap;
+  white-space: normal;
+  word-break: break-word;
+  user-select: none;
+}
+
+
+.spineInfoContentContainer{
+  min-height: 100px;
+  min-width: 300px;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #27272a;
+  position: relative;
+  cursor: default;
+}
+
+.gragHandleIconContainer{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  position: absolute;
+  padding: 6px 12px;
+}
+
+
+.clearIcon,
+.dragIcon{
+  font-size: 36px !important;
+  color: #9CA3AF;
+
+  grid-column-start: 2;
+  
+  &:hover {
+    color: #FFFFFF;
+  }
+
+  transition: all 0.2s ease-out;
+  cursor: grab;
+}
+
+.clearIcon{
+  grid-column-start: 3;
+  font-size: 24px !important;
+  cursor: pointer;
+}
